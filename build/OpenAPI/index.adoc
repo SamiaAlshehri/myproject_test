@@ -1,0 +1,104 @@
+= Sample API
+info@company.com
+1.0.0
+:toc: left
+:numbered:
+:toclevels: 3
+:source-highlighter: highlightjs
+:keywords: openapi, rest, Sample API
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://my-api.company.com
+:app-name: Sample API
+
+[abstract]
+.Abstract
+API description in Markdown.
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+
+== Endpoints
+
+
+[.Default]
+=== Default
+
+
+[.usersGet]
+==== usersGet
+
+`GET /users`
+
+List all users
+
+===== Description
+
+
+
+
+// markup not found, no include::{specDir}users/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+
+<<List>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| A list of users.
+| List[<<string>>] 
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}users/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}users/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :users/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}users/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+

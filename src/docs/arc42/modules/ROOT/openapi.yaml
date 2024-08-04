@@ -1,0 +1,36 @@
+swagger: '2.0'
+info:
+  title: Simple API
+  description: Test API documentation
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@simpleapi.local
+  license:
+    name: BSD License
+  version: v1
+host: 127.0.0.1:8000
+schemes:
+- http
+basePath: /
+consumes:
+- application/json
+produces:
+- application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+- Basic: []
+paths:
+  /hello/:
+    get:
+      operationId: hello_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - hello
+    parameters: []
+definitions: {}

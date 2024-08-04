@@ -1,0 +1,5 @@
+= OpenAPI Documentation
+:toc:
+:toclevels: 2
+
+include::../../../../arc42/modules/ROOT/openapi.yaml[]

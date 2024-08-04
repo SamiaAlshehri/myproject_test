@@ -1,0 +1,5 @@
+= OpenAPI Documentation
+:toc:
+:toclevels: 2
+
+include::openapi.yaml[]
