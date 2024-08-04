@@ -25,7 +25,6 @@ jobs:
       run: |
         mkdir -p out
         cp -r build/html5/arc42/modules/ROOT/pages/* out/
-        mv out/index.html out/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
