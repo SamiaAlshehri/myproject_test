@@ -16,10 +16,30 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Generate documentation
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Generate OpenAPI specification
+      run: |
+        python manage.py generateschema > src/docs/openapi.yaml
+
+    - name: Set up docToolchain
       run: |
         chmod +x dtcw
-        ./dtcw generateHTML
+        ./dtcw install doctoolchain
+
+    - name: Export OpenAPI documentation
+      run: ./dtcw exportOpenApi
+
+    - name: Generate documentation
+      run: ./dtcw generateHTML
 
     - name: Move documentation to root of gh-pages folder
       run: |

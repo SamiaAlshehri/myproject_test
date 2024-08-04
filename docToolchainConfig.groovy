@@ -450,7 +450,7 @@ openApi = [:]
 //
 
 openApi.with {
-    specFile = 'src/docs/petstore-v2.0.yaml' // i.e. 'petstore.yaml', 'src/doc/petstore.yaml'
+    specFile = 'src/docs/openapi.yaml' // i.e. 'petstore.yaml', 'src/doc/petstore.yaml'
     infoUrl = 'https://my-api.company.com'
     infoEmail = 'info@company.com'
 }
@@ -534,15 +534,15 @@ structurizr.with {
 
 //tag::openAIConfig[]
 // Configuration for openAI related tasks
-openAI = [:]
+// openAI = [:]
 
-openAI.with {
-    // This task requires a person access token for openAI.
-    // Ensure to pass this token as parameters when calling the task
-    // using -PopenAI.token=xx-xxxxxxxxxxxxxx
+// openAI.with {
+//     // This task requires a person access token for openAI.
+//     // Ensure to pass this token as parameters when calling the task
+//     // using -PopenAI.token=xx-xxxxxxxxxxxxxx
 
-    //model = "text-davinci-003"
-    //maxToken = '500'
-    //temperature = '0.3'
-}
-//end::openAIConfig[]
+//     //model = "text-davinci-003"
+//     //maxToken = '500'
+//     //temperature = '0.3'
+// }
+// //end::openAIConfig[]

@@ -1,11 +1,28 @@
-from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-class HelloWorld(APIView):
-    def get(self, request):
-        return Response({"message": "Hello, world!"}, status=status.HTTP_200_OK)
+class MyAPIView(APIView):
+    """
+    A simple APIView for demonstrating documentation.
 
-def root_view(request):
-    return HttpResponse("Welcome to the Simple API. Visit /swagger/ for API documentation.")
+    get:
+    Returns a list of all items.
+
+    post:
+    Creates a new item.
+    """
+
+    def get(self, request):
+        """
+        Retrieve all items.
+        """
+        items = [{"id": 1, "name": "Item 1"}]
+        return Response(items, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        """
+        Create a new item.
+        """
+        item = request.data
+        return Response(item, status=status.HTTP_201_CREATED)

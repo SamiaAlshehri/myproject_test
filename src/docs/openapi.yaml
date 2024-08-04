@@ -1,17 +1,17 @@
 swagger: '2.0'
 info:
-  title: Simple API
-  description: Test API documentation
+  title: My API
+  description: A simple APIView for demonstrating documentation.
   termsOfService: https://www.google.com/policies/terms/
   contact:
-    email: contact@simpleapi.local
+    email: contact@yourapi.local
   license:
     name: BSD License
   version: v1
 host: 127.0.0.1:8000
 schemes:
 - http
-basePath: /
+basePath: /api
 consumes:
 - application/json
 produces:
@@ -22,15 +22,24 @@ securityDefinitions:
 security:
 - Basic: []
 paths:
-  /hello/:
+  /items/:
     get:
-      operationId: hello_list
-      description: ''
+      operationId: items_list
+      description: Retrieve all items.
       parameters: []
       responses:
         '200':
           description: ''
       tags:
-      - hello
+      - items
+    post:
+      operationId: items_create
+      description: Create a new item.
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+      - items
     parameters: []
 definitions: {}
