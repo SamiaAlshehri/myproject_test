@@ -18,7 +18,8 @@ jobs:
 
     - name: Generate documentation
       run: |
-        docker run --rm -v $(pwd):/project -w /project doctoolchain/doctoolchain generateHTML
+        chmod +x dtcw
+        ./dtcw generateHTML
 
     - name: Move documentation to docs folder
       run: |
