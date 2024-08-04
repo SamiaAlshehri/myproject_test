@@ -1,0 +1,32 @@
+name: Documentation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Generate documentation
+      run: |
+        docker run --rm -v $(pwd):/project -w /project doctoolchain/doctoolchain generateHTML
+
+    - name: Move documentation to docs folder
+      run: |
+        mkdir -p docs
+        cp -r build/html5/* docs/
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.TOKEN }}
+        publish_dir: ./docs
