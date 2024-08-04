@@ -21,13 +21,15 @@ jobs:
         chmod +x dtcw
         ./dtcw generateHTML
 
-    - name: Move documentation to docs folder
+    - name: Move documentation to root of gh-pages folder
       run: |
-        mkdir -p docs
-        cp -r build/html5/* docs/
+        mkdir -p out
+        cp -r build/html5/arc42/modules/ROOT/pages/* out/
+        mv out/index.html out/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.TOKEN }}
-        publish_dir: ./docs
+        publish_dir: ./out
+        publish_branch: gh-pages
