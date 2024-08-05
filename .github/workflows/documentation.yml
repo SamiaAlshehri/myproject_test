@@ -25,10 +25,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install setuptools  # Explicitly install setuptools
+
+    - name: Run Django server in background
+      run: |
+        python manage.py runserver &
+        sleep 10  # Give the server time to start
 
     - name: Generate OpenAPI specification
-      run: |
-        python manage.py generateschema > src/docs/openapi.yaml
+      run: curl http://127.0.0.1:8000/swagger.yaml -o src/docs/openapi.yaml
 
     - name: Set up docToolchain
       run: |
@@ -39,7 +44,8 @@ jobs:
       run: ./dtcw exportOpenApi
 
     - name: Generate documentation
-      run: ./dtcw generateHTML
+      run: |
+        ./dtcw generateHTML
 
     - name: Move documentation to root of gh-pages folder
       run: |
